@@ -1,0 +1,234 @@
+    1  ls
+    2  cd
+    3  ll
+    4  pwd
+    5  ls
+    6  sudo vim jenkin.sh
+    7  vim jenkin.sh
+    8  bash jenkin.sh 
+    9  vim /etc/sudoers
+   10  sudo bash jenkin.sh 
+   11  sudo vim /etc/sudoers
+   12  ls
+   13  bash jenkin.sh 
+   14  yum install docker* -y
+   15  sudo yum install docker* -y
+   16  systemctl status firewalld.service 
+   17  clear
+   18  alias systemctl=shiv
+   19  ls
+   20  unalias systemctl=shiv
+   21  alias 
+   22  shiv status firewalld
+   23  alias systemctl='shiv'
+   24  shiv status firewalld
+   25  nano ~/.bashrc
+   26  source ~/.bashrc
+   27  shiv status firewalld
+   28  ualias systemctl='shiv'
+   29  unalias systemctl='shiv'
+   30  alias shiv='systemctl status firewalld'
+   31  shiv
+   32  source ~/.bashrc
+   33  shiv
+   34  vim ~/.bashrc
+   35  source ~/.bashrc
+   36  shiv
+   37  shiv status firewalld
+   38  vim ~/.bashrc
+   39  source ~/.bashrc
+   40  ip a | grep ens
+   41  clear
+   42  cd /
+   43  ls
+   44  sudu su -
+   45  sudo su -
+   46  clear
+   47  cd /etc/
+   48  grep "fstab" ls
+   49  ls
+   50  ls | grep fstab
+   51  cat fstab 
+   52  clear
+   53  man fstab 
+   54  blkid
+   55  blkid fstab
+   56  lsblk
+   57  lsblkd
+   58  man fstab 
+   59  cd ..
+   60  lcd
+   61  cd
+   62  ls
+   63  blkid Download
+   64  showmount -e
+   65  showmount 
+   66  vim /etc/exports
+   67  which nfs
+   68  exportfs
+   69  sudo exportfs
+   70  showmount -e
+   71  clear
+   72  sudo su -
+   73  clear
+   74  man route
+   75  man umask
+   76  alias shiv="systemctl"
+   77  shiv status firewalld.service
+   78  shiv status firewall
+   79  clear
+   80  rpm -qa | httpd
+   81  rpm -qa | grep httpd
+   82  rpm -qa | grep .service
+   83  rpm -qa | grep firewalld.service
+   84  locate firewalld.service
+   85  unalias shiv="systemctl"
+   86  clear
+   87  alias
+   88  echo ABCDEF | fold w1
+   89  echo ABCDEF | grep fold w1
+   90  echo ABCDEF fold w1
+   91  echo ABCDEF > fold w1
+   92  clear
+   93  dater
+   94  date
+   95  date +%D
+   96  ls -lt
+   97  ls -ltr
+   98  ls -lh
+   99  ls
+  100  pwd
+  101  head -5 fold 
+  102  tail -5 fold 
+  103  sort fold 
+  104  sort -r fold 
+  105  cat >> fold 
+  106  sort -r fold 
+  107  sort  fold 
+  108  clear
+  109  split -l 3 fold 
+  110  clear
+  111  ls
+  112  cat xaa 
+  113  clear
+  114  shuf fold 
+  115  clear
+  116  wc -l fold 
+  117  wc -lw fold 
+  118  man wc 
+  119  wc -lwcmL fold 
+  120  wc -Lwcml fold 
+  121  uptime
+  122  last
+  123  clear
+  124  touch file{1..4}
+  125  clear
+  126  ls
+  127  tar -czf myfiles.tar file{1..4}
+  128  ls
+  129  ls =ltr
+  130  ls -ltr
+  131  clear
+  132  tar -xzf myfiles.tar 
+  133  ls
+  134  ls -ltr
+  135  clear
+  136  printenv
+  137  shell
+  138  echo shell
+  139  echo SHELL
+  140  echo "SHELL"
+  141  echo "$SHELL"
+  142  clear
+  143  java --v
+  144  which http
+  145  clear
+  146  which ls
+  147  ls -v
+  148  clear
+  149  tr [:upper:] [:lower:] < xaa 
+  150  cat xaa 
+  151  clear
+  152  cat xaa 
+  153  tr "A" < xaa 
+  154  du -sh xaa 
+  155  ls
+  156  du -sh
+  157  ls -lh
+  158  cat com/
+  159  truncate -s 10M xaa 
+  160  ls -lh
+  161  clear
+  162  cat xaa 
+  163  clear
+  164  truncate -s 2b xaa 
+  165  echo ABCDE | fold -w1
+  166  clear
+  167  echo ABCDE | fold -w1
+  168  echo ABCDE | fold -w1 > file1 
+  169  cat file1 
+  170  clear
+  171  yum install list
+  172  sudo yum install list
+  173  sudo yum repolist 
+  174  clear
+  175  man yum
+  176  free -h
+  177  top
+  178  free -m
+  179  clear
+  180  free -gh
+  181  ps
+  182  du
+  183  clear
+  184  du com/
+  185  du -h com/
+  186  df
+  187  lsblk 
+  188  lsblk -h
+  189  clear
+  190  df -h
+  191  uname -a
+  192  cat /etc/os-release 
+  193  uname -r
+  194  man uname
+  195  uname -snrv
+  196  uname -s
+  197  uname -n
+  198  uname -r
+  199  uname -v
+  200  man uname
+  201  uname -m
+  202  uname -p
+  203  uname -i
+  204  clear
+  205  ls
+  206  mkdir script
+  207  ls -ltr
+  208  cd script/
+  209  ls
+  210  echo $0
+  211  script
+  212  ls
+  213  cat typescript 
+  214  2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c2R0;136;0c
+  215  clear
+  216  vim typescript 
+  217  cd ..
+  218  ls
+  219  git init
+  220  which git
+  221  sudo yum install git* 
+  222  git init
+  223  ls
+  224  git config user.name "shivshankar7977"
+  225  git remote add origin https://github.com/shivshankar7977/Linux.git
+  226  git config user.name
+  227  git add script/
+  228  git status
+  229  git commit -m "shell scripting"
+  230  git push -u origin master
+  231  git pull https://github.com/shivshankar7977/Linux.git
+  232  ls
+  233  git push -u origin master
+  234  history > history
