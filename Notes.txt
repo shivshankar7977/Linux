@@ -1,0 +1,1013 @@
+### Linux Notes
+Types of OS:
+````````````
+Single User Single Tasking [DOS]
+Single User Multitasking [Win]
+Multiuser Multitasking [Linux/unix]
+Real Time
+Embedded
+
+Open Source
+````````````
+- Free to study
+- Free to modify
+- Free to dist.
+
+History of SHELL:
+``````````````
+sh 		[ SHELL ]
+ksh		[ Korn Shell ] : UNIX Script
+To exe multi objs using a single obj.
+
+csh 		[ C lang Shell ]
+tcsh 	[ Turbo C shell ]
+BASH  	[ ksh + tcsh ] 
+
+
+1) POST
+2) BIOS 
+				\_ CD/DVD
+				\_ HDD/SSD *
+				\_ USB
+				\_ N/W
+3) MBR [ Master Boot Record ]
+
+4) Boot Loader [ GRUB ] 
+			
+
+CLI
+	\_ TUI [Text-mode user interface] 
+GUI
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Installation:
+``````````````20G
+
+1) /    		[ Parent Partition ] 
+
+2) /boot		[ Booting Configuration ] GRUB
+
+3) SWAP		[ RAM x 2 ] = 8G
+							Phy 
+							Mem
+
+A part of HDD/SSD act as RAM, is called Virtual Mem
+
+
+
+
+
+File SYstem:
+````````` 
+FAT32 - 512 kb/block
+NTFS  - 4 MB/block
+
+ext2
+ext3
+ext4
+xfs
+vfat [fat, fat16, fat32]
+
+
+
+/dev/sda : HDD
+
+/dev/sda1 : Partition
+/dev/sda2
+
+Storage
+Device
+a
+-----------
+CD/DVD:
+
+/dev/sr0
+/dev/sr1
+
+
+
+
+
+
+
+
+
+
+https://linuxjourney.com/
+https://cmdchallenge.com/
+
+
+https://tryhackme.com/room/linuxfundamentalspart1
+https://tryhackme.com/room/linuxfundamentalspart2
+https://tryhackme.com/room/linuxfundamentalspart3 
+kiosk@kiosk-virtual-machine:~$
+
+
+
+
+
+kiosk: username
+
+kiosk-virtual-machine: hostname
+
+~ [tilte] : home dir of logged in user
+
+/home/user1
+/home/natasha
+---
+/root
+
+$ : Normal User 
+
+# : Root user
+________________
+/bin 	[binary]
+/sbin 	[Super Binary]
+/usr		[All system commands] /usr/bin, /usr/sbin/
+/boot	[Booting Configuration] GRUB
+/dev		[Devices]
+/lib		[Library]
+/lib64	[Library]
+/mnt,/misc,/opt,/media : EMPTY
+/home	[Home Dir of normal users] /home/natasha ; /home/harry
+/root	[Home Dir of Super User]
+/proc	[Process & hardware related information]
+/selinux[RHEL/CentOS: Security Enhanced Linux] File Based Security [rwx]
+/etc		[Important: system services & system related config]
+/srv		[Service: Third party services]
+/sys		[System: system driver database]
+/tmp		[Temp]
+/var		[variable data: spool dir(mail inbox), logs]
+files	[static/dynamic]
+___________________________________________
+Basic Commands:
+--------------- 
+
+PATH:
+``
+a) Absolute Path [/home/natasha/Desktop]
+b) Relative Path [cd Dir]
+
+1) pwd			:	Present Working Dir
+2) whoami 	:	Check the loggedin user
+3) date		:	Show the date & time
+4) ls			: 	Show the list of dir contents
+5) mkdir dir_name		:	Make dir
+6) touch filename		:	To crete a blank file
+7) cat > filename		:	Create a new file with text.
+text
+
+[ctrl+d : exit]
+
+>	stdout	[ Standard output to the program ]
+<	stdin	[ Standard input to the program ]
+
+# cat > secret
+redhat
+redhat
+
+8) cat filename: To show the text of file
+
+9) passwd username: To reset the password for user.
+
+10) cat >> filename : To append the data in existing file.
+text
+[ctrl+d]: To save
+
+11) remove:
+
+a) A file:
+```````
+# rm filename
+
+b) A dir:
+`````````
+# rm -rfv dir_name
+
+-r [ Recursive ] 
+-f [ Forcefully ]
+-v [ verbose ] : to view the process in detail.
+
+12) MOVE:
+
+# mv sourceFile/Dir DestinationDir
+
+13) COPY:
+
+a) File to File:
+----------------
+# cp srcFile dstFile
+
+# cp -i srcFile dstFile
+
+b) File/Dir to Dir:
+-------------------
+
+# cp -rfv srcFile/Dir dstDir
+
+echo "MSG" : Print the msg on screen
+ls -a	:	Show all/Hidden files/Dirs
+
+mkdir .dirname	: Hidden dir
+touch .filename	: Hidden file
+
+history	: To show the history
+	!2000	: Exe history index number
+
+history -c : Clear/Clean the history
+
+tty: Print/show th console identity
+
+# echo "Hello" > /dev/tty1
+_______
+
+ENV variable[SYSTEM Variable]
+``````````````````````````````
+
+Check:
+``
+# env
+
+Print:
+```
+# echo $SHELL
+---------
+history
+
+echo $HISTSIZE
+1000
+
+change the value of env variables but for current working env:
+----------
+export HISTSIZE=0
+___
+# cd /root/
+# ls -a
+.bash_history
+________
+
+# echo $HISTTIMEFORMAT
+
+%d : Day
+%m : month
+%y : year
+%T : Timestamp
+
+# export HISTTIMEFORMAT="%d-%m-%y %T "
+________________
+
+user related info:
+``````````````````
+# cat /etc/passwd
+
+hunt:x:1000:1000:,,,:/home/hunt:/bin/bash
+
+Password info:
+``````````````
+# cat /etc/shadow
+hunt:Encrypted pass:Acc Age
+
+SHA512 + Salt Algo
+
+
+UID [0-60000]     | GID [0-60000]
+```````````````````````````````````````````
+0-999 Super user  | 0-999 Super group
+1000+ Regular user| 1000+ regular group
+
+Group info:
+````````
+# cat /etc/group
+
+grp:x:GID
+
+Group pass:
+``````
+# cat /etc/gshadow
+
+1) Add user:
+``````
+# adduser username
+
+check:
+
+# id username
+
+2) Password:
+``````
+# passwd username
+# passwd -d username 
+
+-d : delete
+
+3) Login:
+``````
+# su - username
+
+# exit
+OR
+# logout
+
+4) Delete user:`
+````````````
+a) without home dir
+# userdel username
+
+b) with home dir
+# userdel -r username
+-------------
+1) Add group:
+```````
+# groupadd groupname
+
+2) Password:
+``````
+# gpasswd groupname
+
+3) Delete:
+```````
+# groupdel groupname
+
+
+Memberships:
+````````````
+a) Primary
+
+add user as primary member of a group:
+# groupadd grp
+# useradd -g grp u1
+
+-g: Primary membership
+
+b) Secondary
+
+i) add user as secondary member of a group:
+# groupadd lol
+# useradd -G lol pipi
+
+-G: secondary member
+
+ii) Add an existing user in a group as secondary member:
+
+# usermod -G grp natasha
+
+Permissions:
+````````````
+1) Symbolic Method
+
+read			: r
+write		: w
+execute	: x
+
+user owner	: u
+group owner	: g
+others				: o
+All						: a
+
+Assign			: +
+Remove			: -
+Overwrite	: =
+
+Permission Area:
+`````````````
+
+
+# ls -l
+drwxr-xr-x  2 root  root   6 Mar 22 17:47 kids
+
+
+rwx			r-x			r-x
+u				g				o
+
+Default perm for file:
+```````````````````
+read & write : u
+read						: g
+read						: o
+
+Default perm for dir:
+```````````````````
+read, write & execute: u
+read & execute					: g
+read & execute					: o
+
+
+
+
+
+
+
+
+
+File Type:
+```````
+Regular file  	[-]
+Dir								[d]
+block						[b]
+char							[c]
+pipe OR Socket	[p OR s]
+link							[l]
+
+
+
+Assign perm using Symbolic method:
+````````````````````````````````
+
+```bash
+# chmod u+xwr file/dir
+
+# chmod u+w,u-x file/dir
+
+# chmod u+rw,g=w,o-rwx file/dir
+
+# chmod a=w  file/dir
+OR
+# chmod ugo+rw file/dir
+OR
+# chmod +w file/dir
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+2) Numeric Method
+```````````````
+read				: 4
+write			    : 2
+execute		        : 1
+Full				: 7
+No					: 0
+
+
+
+
+---		000		0
+r--		100		4
+-w-		010		2
+--x		001		1
+rwx		111		7
+
+
+
+
+
+
+
+
+
+# chmod 517 file/dir
+				 ugo
+
+
+1. Create the following users, groups, and group memberships:
+-A group named admin
+-A user harry who belongs to admin as a secondary group
+-A user natasha who also belongs to admin as a secondary group
+-A user sarah who must have access to an interactive shell on the system, and who is not a member of admin
+-harry, natasha, and sarah should all have the password of "redhat@123?"
+
+# groupadd admin
+# useradd -G admin harry
+# useradd -G admin natasha
+# useradd sarah
+# passwd 
+
+
+
+
+2. Copy the ﬁle /etc/fstab to /var/tmp. Conﬁgure the permissions of /var/tmp/fstab so that: 
+-The ﬁle /var/tmp/fstab is owned by the root user.
+-The ﬁle /var/tmp/fstab belongs to the group root.
+-The ﬁle /var/tmp/fstab should not be executable by anyone.
+-The other  users are able to read and write /var/tmp/fstab.
+
+# cp -rfv /etc/fstab /var/tmp/
+# chmod a-x,o=rw /var/tmp/fstab
+
+Ownership:
+```````
+1) User owner:
+
+# chown username file/dir
+
+2) Group Owner:
+````````````
+# chgrp groupname file/dir
+ACL: [ Access Control List]
+````
+
+# setfacl -m u:harry:rw- file/dir
+
+-m : modify
+
+# setfacl -m g:grp:rw- file/dir
+
+# getfacl file/dir
+
+Process Management:
+```````````````````
+Process:
+````````
+- Any running program is a process
+- Multiple instances of the same program are processes.
+- Shell is also a process
+
+
+Process ID (PID)
+`````````````
+- Each linux process is identified by unique id PID 
+- Every process has a Parent Process ID (PPID)
+	+ Except "init"
+
+- When a process is loaded into memory there is structure:
+	+ stack
+	+ heap
+	+ data segment
+	+ code segment
+
+ [+] Stack: Used for static memory allocation.
+
+ [+] Heap: Used for dynamic memory allocation.
+
+ [+] Data: Stores any static or global variables if defined.
+
+ [+] Code: Is the instructions of the program.
+
+
+Create a Process:
+``````````````
+Terminal#1
+````````
+# sleep 100
+
+Terminal#2
+````````
+# ps -la		[ Show the processes with PID & PPID ]
+
+Process States:
+````````````
+- The process is built and executing , so now...
+- We enter the Process State Machine
+
+- States of Process:
+[N] New				When a new process is being created
+[R] Running			Instructions are being executed
+[W] Waiting 			The process is waiting for some event to occur
+[R] Ready 			The process is waiting to be assigned to a processor
+[T] Terminated		The processes has finished execution and is exiting
+
+
+Managing Processes:
+``````````````
+- Linux kernel tracks what each process is doing
+- Process is assigned a priority
+- Address space assigned to the process
+- Files is the process allowed to access
+- Is the process a ?:-
+	+ Parent
+	+ Child
+	+ Zombie
+
+=> Sometimes the parent dies first
+```````````````````````````````
+- If the parent just exits or dies, the child process is left running
+- The child's PPID is no longer valid due to parent is gone.
+- Linux calls these children processes "Zombies"
+- In Linux a zombie is just a process in which the children are adopted by the "init" process
+- The init process will eventually cleanup the zombie childrens
+
+PPID[kill]
+	\___________PID[kill]
+
+PPID[die]
+	\___________PID[zombie]
+
+
+Process Termination:
+````````````````````
+
+- When a parent forks a child, they can finish in any order( parent first or child first)
+- Sometimes the parent process could encounter and error and die
+- Sometimes the parent process will just wait around until the child processes all complete brfore exiting
+	+ it calls a wait() command
+- There are variety of wait command.
+
+#!/bin/bash
+function help(){
+        echo "-d DOMAIN: provide domain as target"
+        echo "-h/--help: Print help"
+}
+function main(){
+        while read sub;do
+                if host "$sub.$domain" &> /dev/null;then
+                        echo "$sub.$domain"
+                fi
+        done < $list
+}
+while true;do
+case $1 in
+        "-h"|"--help")
+                help
+                exit
+                ;;
+        "-d")
+                domain=$2
+                shift
+                if [ -z $domain ];then
+                        echo "Error: Domain is required"
+                        exit 127
+                fi
+                ;;
+        "-w")
+                list=$2
+                shift
+                if [ -z $list ];then
+                        echo "Error: Wordlist required"
+                        exit 127
+                fi
+                break
+                ;;
+        *)
+                echo "Error: use help -h/--help"
+                exit 127
+                ;;
+esac
+shift
+done
+main
+
+FTP: File Trasfer Protocol
+````````````````````````
+On server:
+````````
+Package: vsftpd [very secure FTP]
+Service: vsftpd
+Port:	21
+DocumentRoot : /srv/ftp
+Config file: /etc/vsftpd.conf
+
+1) install:
+````````
+# apt install vsftpd
+
+2) Service:
+````````
+ systemctl: To handle/manage services in Linux. So you can perform some actions like start, stop, status, reload etc....
+
+# systemctl status vsftpd
+
+To check the open port:
+````````````````````
+# lsof -i:21
+
+3) Config:
+```````
+# vim /etc/vsftpd.conf
+
+anonymous_enable=NO
+
+anonymous_enable=YES
+
+:wq
+
+# systemctl restart vsftpd
+
+
+On Client:
+````````
+Package: ftp
+
+# apt install ftp -y
+
+Access:
+````
+# ftp x.x.x.x [Server IP]
+
+name: ftp
+pass: ftp
+ftp> ls
+ftp> get filename [ To download a file from remote server]
+ftp> mget dir [ To download a dir from remote server]
+
+ftp> put filename [ Upload a filr on remote server]
+ftp> mput dir [ Upload a dir on remote server]
+
+Remote management:
+``````````````````
+1) SSH [ Secure Shell ]
+````````````````````````To access remote machine on CLI.
+
+On Server:
+```````
+Package: openssh-server
+Port: 22
+service: ssh
+config: /etc/ssh/sshd_config
+
+# apt install openssh-server -y
+
+# systemctl status ssh
+-----------------
+On Client:
+```````
+# apt install openssh-client -y
+
+
+Access:
+````````
+# ssh user@x.x.x.x
+
+
+
+
+
+Root login enable:
+```````````````````
+# vim /etc/ssh/sshd_config
+
+#PermitRootLogin prohibit-password
+
+Remove "#" to uncomment & edit
+
+PermitRootLogin yes
+
+:wq
+
+YOU MUST RESTART THE SERVICE
+
+# systemctl restart ssh
++++++++++++++++++++++++++++++++++++++
+
+Job Scheduling in Linux:
+-------------------------
+cron scheduling: 
+	- To configure the Job we use an utility named as: `crontab`
+	- To run the job in future we have a service called: 
+		RedHat/CentOS 	: crond
+		Debian		: cron
+	- To schedule the Job, you need to remember 6 things:
+		* minute	[ 0-59 ]
+		* hour			[ 0-23 ]
+		* date			[ 1-31 ]
+		* month		[ 1-12 ]
+		* day			[ 0-6 ] 0 : SUNDAY
+		* Full path of command
+	
+		# date
+
+
+Let's Configure Job:
+--------------------
+
+# crontab -e
+
+-e : edit
+
+min      hr      date      month      day      echo "LOL"
+
+Save & Exit
+
+To check list of jobs:
+````````````````````
+# crontab -l
+
+Next Step:
+---------
+Once you configure the Job, you must restart/reload the service.
+
+ systemctl:
+````````
+			- This is to manage services in RHEL/CentOS, we can perform actions like start, stop, status, restart, reload etc....
+
+
+		# systemctl <action> <service_name>
+		e.g # systemctl status crond
+
+
+
+
+=> Debian		: service
+			- This is to manage services in Debian, we can perform actions like start, stop, status, restart, reload etc....
+
+		# service <service_name> <action>
+		e.g : service cron restart
+
+
+Configure the job for normal users:
+-----------------------------------
+# crontab -e -u username
+
+min hr date month day cmd
+:wq
+#systemctl restart crond
+
+# crontab -l -e username
+
+
+Allow/Deny users to use crontab:
+---------------------------------
+Deny:
+-----
+
+# vim /etc/cron.deny
+
+username
+
+:wq
+
+
+Allow:
+------
+Create a file:
+
+	# vim /etc/cron.allow
+	 root
+	:wq
+
+--------------------------------------------
+
+Basic HTTP Req:
+----------------
+curl https://example.com
+
+To ignore SSL/TLS cert exeption:
+--------------------------------
+curl -k https://example.com
+
+To forward the HTTP request based on Location Header:
+-----------------------------------------------------
+curl -k https://example.com -L
+
+To verbose:
+-----------
+curl -k https://example.com -v
+
+Only response header:
+---------------------
+curl -k https://example.com -I
+
+Store the output/silent:
+------------------------
+curl -ks https://example.com -o filename
+curl -ks https://example.com -o /dev/null
+
+HTTP Req Methods: [GET, POST, PUT ...]
+--------------------------------------
+curl -ks https://example.com -X OPTIONS
+curl -ks https://example.com -X GET
+
+Process Substitution:
+---------------------
+
+Piping the 'stdout' of a process into the 'stdin' of another is nice but what if you need to pipe the 'stdout' of multiple commands?
+
+here you need 'Process Substitution'.
+
+NOTE: Process Substitution treated as a file and it always return file descriptor.
+
+<(cmd)
+>(cmd)
+
+To send data into process substitution using '>' & read with '<'. It use "/dev/fd/<n>" to send results of (cmd) to another process.
+
+eg
+
+# echo <(echo $BASHPID)
+/dev/fd/63
+
+To read this file/file descriptor
+# cat <(echo $BASHPID)
+4111
+
+Comparision between command substitution & process substitution
+===============================================================
+
+# seq 10 > numbers.txt
+# wc -l numbers.txt
+10
+
+# wc -l <(seq 10)
+10
+
+# wc -l $(seq 10)
+errors
+
+- Directory stacks manipulation
+````````````````````````````````
+Navigate with 'pushd' & 'popd'
+
+eg:
+# cd test
+# cd hello
+# cd dbda
+# pwd
+/home/students/test/hello/dbda
+
+You can use the above example to navigate but you can also save where you are.
+Using pushd & popd [works with LIFO like a stack]
+
+So you can understand it like : you can put things in stack, if you try to take something back off of that stack whatever you put on last is going to be what comes back off first.
+
+# pushd ../../  [will push the current dir with pwd]
+ 
+Now you can see we have two paths in our stack
+
+/home/students/test /home/students/test/hello/dbda
+
+If i want to get back wherever i was
+
+#popd
+
+
+Another example:
+````````````````
+# cd /mnt/dbda/test
+
+# mkdir a b c d
+# ls
+a b c d
+
+
+# dirs [ to check the stack ]
+# dirs -v [ to check the stack with index number ]
+
+If
+
+# pushd a
+# dirs -v [new dir take position 0 and privious is on 1]
+0	/mnt/dbda/test/a
+1	/mnt/dbda/test
+
+# dirs -c [ clean ]
+
+
+NOW: we have dirs 'a' 'b' & 'c', imagine you need to access all those dirs in the same terminal frequently
+
+We need to set the stack as 
+'c' => 2
+'b' => 1
+'a' => 0
+
+# pushd c
+# pushd ../b
+# pushd ../a
+
+#dirs -v
+
+#cd ~1
+#cd ~2
+
+__________________________________________________________
+
+TARBALL
+```````[.tar]
+Create:
+`
+# tar -cvf backup.tar /etc
+-c : create
+
+View:
+``
+# tar -tvf backup.tar
+-t : Tree view
+
+Extract:
+````````
+# tar -xvf backup.tar
+-x : extract
+
+# tar -xvf backup.tar -C /out
+-C : create restored data
+
+
+GUNZIP:
+```````
+# gzip backup.tar
+# ls 
+backup.tar.gz
+
+# gunzip backup.tar.gz
+# ls 
+backup.tar 
+
+
+TARBALL + GUNZIP:
+``````````````````[.tgz]
+# tar -czvf backup.tgz /etc
+
+# tar -tzvf backup.tgz
+
+# tar -xzvf backup.tgz
+# tar -xzvf backup.tgz -C /data
+
+# du -sch /dir
