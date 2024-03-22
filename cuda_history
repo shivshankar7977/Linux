@@ -1,0 +1,129 @@
+    1  lspci | egrep 'VGA|3D'
+    2  lsmod | grep nouveau
+    3  lsmod | grep nvidia
+    4  uname -i
+    5  arch
+    6  vim demo.sh
+    7  lsmod | grep nvidia
+    8  lsmod | grep nouveau
+    9  lsmod | grep nvidia
+   10  nvidia-smi 
+   11  passwd
+   12  subscription-manager register 
+   13  PING GOOGLE.COM
+   14  ping google.com
+   15  subscription-manager register 
+   16  CLEAR
+   17  subscription-manager refresh 
+   18  yum update -y
+   19  dnf makecache
+   20  subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+   21   dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+   22  dnf makecache 
+   23  sudo dnf install kernel-devel-$(uname -r) kernel-headers-$(uname -r) gcc make dkms acpid libglvnd-glx libglvnd-opengl libglvnd-devel pkgconfig
+   24  sudo dnf config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/rhel9/$(uname -i)/cuda-rhel9.repo
+   25  dnf makecache 
+   26  sudo dnf module install nvidia-driver:latest-dkms
+   27  reboot --now
+   28  reboot
+   29  nvidia-smi 
+   30  wget https://developer.download.nvidia.com/compute/cuda/12.4.0/local_installers/cuda_12.4.0_550.54.14_linux.run
+   31  nvidia-smi 
+   32  sudo dnf -y module install nvidia-driver:open-dkms
+   33  sudo dnf -y module install nvidia-driver:open-dkms --skip-broken --nobest
+   34  nvidia-smi 
+   35  grep nvidia /etc/modprobe.d/* /lib/modprobe.d/*
+   36  lspci | grep -i nvidia
+   37  dkms status
+   38  ls
+   39  cd Downloads/
+   40  ls
+   41  nvidia-smi 
+   42  clear
+   43  dkms status
+   44  nvidia-smi 
+   45  clear
+   46  cd
+   47  clear
+   48  ls
+   49  nvidia-smi 
+   50  nvidia-smi
+   51  ls
+   52  chmod +x cuda_12.4.0_550.54.14_linux.run 
+   53  ls
+   54  bash cuda_12.4.0_550.54.14_linux.run 
+   55  cat /var/log/cuda-installer.log
+   56  wget https://developer.download.nvidia.com/compute/cuda/12.4.0/local_installers/cuda-repo-rhel9-12-4-local-12.4.0_550.54.14-1.x86_64.rpm
+   57  sudo rpm -i cuda-repo-rhel9-12-4-local-12.4.0_550.54.14-1.x86_64.rpm
+   58  sudo dnf clean all
+   59  ls
+   60  ll
+   61  chmod +x cuda-repo-rhel9-12-4-local-12.4.0_550.54.14-1.x86_64.rpm 
+   62  ls
+   63  clear
+   64  sudo dnf -y install cuda-toolkit-12-4
+   65  nvidia-smi 
+   66  yum update -y
+   67  nvidia-smi 
+   68  reboot
+   69  nvidia-smi 
+   70  init 3
+   71  ls
+   72  bash cuda_12.4.0_550.54.14_linux.run 
+   73  cat /var/log/cuda-installer.log 
+   74  yum install gcc -y
+   75  clear
+   76  init 5
+   77  vim /etc/default/grub 
+   78  echo "blacklist nouveau" > /etc/modprobe.d/denylist.conf
+   79  echo "options nouveau modeset=0" >> /etc/modprobe.d/denylist.conf
+   80  lsmod | grep nouveau
+   81  nvidia-smi
+   82  reboot
+   83  nvidia-smi
+   84  ls
+   85  rm -rf *
+   86  ls
+   87  sudo dnf remove "cuda*" "*cublas*" "*cufft*" "*cufile*" "*curand*"  "*cusolver*" "*cusparse*" "*gds-tools*" "*npp*" "*nvjpeg*" "nsight*" "*nvvm*"
+   88  sudo dnf module remove --all nvidia-driver
+   89  sudo dnf module reset nvidia-driver
+   90  sudo dnf module remove --all nvidia-driver
+   91  sudo yum remove "*nvidia*"
+   92  sudo apt-get --purge remove "*nvidia*" "libxnvctrl*"
+   93  sudo yum  --purge remove "*nvidia*" "libxnvctrl*"
+   94  reboot
+   95  gcc --version
+   96  # subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+   97  # dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm -y
+   98   subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+   99   dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm -y
+  100  yum install httpd
+  101   dnf groupinstall "Development Tools"
+  102   dnf install elfutils-libelf-devel libglvnd-devel
+  103  lsmod | grep nouveau
+  104  sudo nano /etc/default/grub
+  105  echo "blacklist nouveau" > /etc/modprobe.d/denylist.conf
+  106  echo "options nouveau modeset=0" >> /etc/modprobe.d/denylist.conf
+  107  sudo dracut --force
+  108  grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  109  reboot
+  110  gcc --version
+  111  lsmod | grep nouveau
+  112  cd /
+  113  wget https://developer.download.nvidia.com/compute/cuda/12.4.0/local_installers/cuda_12.4.0_550.54.14_linux.run
+  114  ls
+  115  chmod +x cuda_12.4.0_550.54.14_linux.run 
+  116  ls
+  117  init 3
+  118  cd /
+  119  ls
+  120  bash cuda_12.4.0_550.54.14_linux.run 
+  121  nvidia-smi 
+  122  reboot
+  123  ll
+  124  clear
+  125  ls
+  126  cd /
+  127  ls
+  128  history 
+  129  history >cuda.txt
