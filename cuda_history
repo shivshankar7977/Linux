@@ -127,3 +127,118 @@
   127  ls
   128  history 
   129  history >cuda.txt
+
+
+
+
+
+
+
+
+
+
+
+
+[root@localhost /]# cat test
+    1  ls
+    2  subscription-manager register
+    3  hostnamectl
+    4  clear
+    5  ls
+    6  man subscription-manager
+    7  subscription-manager --attach auto
+    8  subscription-manager attach --auto
+    9  subscription-manager refresh
+   10  clear
+   11  yum update -y
+   12  lspci | grep -i nvidia
+   13  uname -m && cat /etc/*release
+   14  gcc --version
+   15  uname -r
+   16  sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+   17  subscription-manager repos --enable=rhel-9-for-x86_64-appstream-rpms
+   18  subscription-manager repos --enable=rhel-9-for-x86_64-baseos-rpms
+   19  subscription-manager repos --enable=codeready-builder-for-rhel-9-x86_64-rpms
+   20  sudo rpm --erase gpg-pubkey-7fa2af80*
+   21  sudo rpm --install cuda-repo-<distro>-X-Y-local-<version>*.<arch>.rpm
+   22  yum install httpd -y
+   23  which wget
+   24  nvcc --version
+   25  lspci | grep -i nouve
+   26  lspci | grep -i nou
+   27  lsmod | grep -i nou
+   28  lsmod | grep -i nouveau
+   29  vim /usr/lib/modprobe.d/blacklist-nouveau.conf
+   30  cat /usr/lib/modprobe.d/blacklist-nouveau.conf
+   31  sudo dracut --force
+   32  sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+   33  cd /boot/grub2/
+   34  cat grub.cfg
+   35  cd /
+   36  wget https://developer.download.nvidia.com/compute/cuda/12.4.0/local_installers/cuda_12.4.0_550.54.14_linux.run
+   37  history >test
+    1  ls
+    2  subscription-manager register
+    3  hostnamectl
+    4  clear
+    5  ls
+    6  man subscription-manager
+    7  subscription-manager --attach auto
+    8  subscription-manager attach --auto
+    9  subscription-manager refresh
+   10  clear
+   11  yum update -y
+   12  lspci | grep -i nvidia
+   13  uname -m && cat /etc/*release
+   14  gcc --version
+   15  uname -r
+   16  sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+   17  subscription-manager repos --enable=rhel-9-for-x86_64-appstream-rpms
+   18  subscription-manager repos --enable=rhel-9-for-x86_64-baseos-rpms
+   19  subscription-manager repos --enable=codeready-builder-for-rhel-9-x86_64-rpms
+   20  sudo rpm --erase gpg-pubkey-7fa2af80*
+   21  sudo rpm --install cuda-repo-<distro>-X-Y-local-<version>*.<arch>.rpm
+   22  yum install httpd -y
+   23  which wget
+   24  nvcc --version
+   25  lspci | grep -i nouve
+   26  lspci | grep -i nou
+   27  lsmod | grep -i nou
+   28  lsmod | grep -i nouveau
+   29  vim /usr/lib/modprobe.d/blacklist-nouveau.conf
+   30  cat /usr/lib/modprobe.d/blacklist-nouveau.conf
+   31  sudo dracut --force
+   32  sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+   33  cd /boot/grub2/
+   34  cat grub.cfg
+   35  cd /
+   36  wget https://developer.download.nvidia.com/compute/cuda/12.4.0/local_installers/cuda_12.4.0_550.54.14_linux.run
+   37  history >test
+   38  reboot
+   39  lsmod | grep -i nou
+   40  init 3
+   41  cd /
+   42  ls
+   43  chmod +x cuda_12.4.0_550.54.14_linux.run
+   44  ls
+   45  bash cuda_12.4.0_550.54.14_linux.run
+   46  nvidia-smi
+   47  nvcc --version
+   48  init 5
+   49  export LD_LIBRARY_PATH=/usr/local/cuda-12.4/lib64                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+   50  systemctl status nvidia-persistenced
+   51  setenforce 0
+   52  export PATH=/usr/local/cuda-12.4/bin${PATH:+:${PATH}}
+   53  sudo dnf install freeglut-devel libX11-devel libXi-devel libXmu-devel                     make mesa-libGLU-devel freeimage-devel libglfw3-devel
+   54  nvidia-smi
+   55  update-alternatives --display cuda
+   56  update-alternatives --display cuda-12
+   57  sudo update-alternatives --config cuda
+   58  cd /etc/yum.repos.d/
+   59  ls
+   60  cat redhat.repo
+   61  lspci | grep -i nvidia
+   62  nvcc --version
+   63  cd /
+   64  ls
+   65  history >>test
