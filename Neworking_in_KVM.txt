@@ -1,0 +1,62 @@
+1 Enable Ip forwarding is enabled on your physical server acting as the host for the VM. To enable IP forwarding temporalily:
+
+
+# sudo sysctl -w net.ipv4.ip_forward=1
+
+To make this changes permanent , edit'/etc/sysctl.conf' and uncomment or add the line:
+
+# net.ipv4.ip_forward=1
+
+
+Then ,apply the changes:
+
+#  sudo sysctl -p 
+
+2
+
+Add a Route on the Physical Server :
+
+
+On your physical server, add a route to the 192.168.122.0/24 subnet via  the interface connected to the VM network.
+
+
+# sudo ip route add 192.168.122.0/24 via 192.168.122.x dev {INTERFACE NAME}
+
+
+Replace '192.168.122.x with the ip of the interface on your physical server that connect to the VM network(virbr0)', and 'INTERFACE NAME' with the name of the interface .
+
+
+3. Configure VM Firewall (if applicable)
+ 
+Ensure the firewall settings on the VM allow incoming traffic from the 172.16.254.x subnet . You might need to adjust firewall rules on the VM itself to permit communication from this subnet.
+
+
+
+
+
+
+METHOD 2: Bridging Netwoks 
+
+1. Create a Bridge  Between Networks:
+Configure your physical server to act as a bridge between the networks.
+you'd bridge the network interface of both the physical server and the VM.
+
+This process involves setting up a bridge interface (br0) that combines the physical interface (ethx) and the virtual interface (virbr0) .
+
+This process involves setting up a bridge interface (br0) that combines the physical interface (ethx) and the virtual interface (vrbr0)
+
+Here is a basic example of configuring a bridge :
+
+
+
+
+# sudo nmcli con add type bridge ifname br0
+# sudo nmcli con add type bridge-slave ifname ethx master br0
+# sudo nmcli con add type bridge-slave ifname ifname virbr0 master br0
+# sudo nmcli con up br0
+
+Replace ethX with the physical interface connecting to the 172.16.254.x subnet and adjust as necessary.
+
+Either of these methods should enable communication between your VM on 192.168.122.10 and the other physical servers on the 172.16.254.x network. The choice between routing and bridging depends on your network setup and requirements.
+
+Remember to adjust firewall rules, if applicable, and replace placeholder values with your actual network configuration. If you face specific issues during this setup, let me know!
