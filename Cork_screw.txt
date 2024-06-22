@@ -1,0 +1,15 @@
+  507  wget https://github.com/bryanpkc/corkscrew/archive/master.zip
+  508  ls
+  509  unzip master.zip
+  510  ls 
+  511  cd corkscrew-master/
+  512  ls
+  513  clear
+  514  ls
+  515  ll
+  516  autoreconf --install
+  517  ./configure
+  518  make
+  519  make install
+  520  which corkscrew
+  521  corkscrew -h
