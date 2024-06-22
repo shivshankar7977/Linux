@@ -1,0 +1,26 @@
+sudo dnf update -y
+sudo dnf install -y gcc gcc-c++ make kernel-devel kernel-headers dkms perl
+wget https://content.mellanox.com/ofed/MLNX_OFED-5.8-1.0.1.1/MLNX_OFED_LINUX-5.8-1.0.1.1-rhel8.8-x86_64.tgz
+tar -xzvf MLNX_OFED_LINUX-5.8-1.0.1.1-rhel8.8-x86_64.tgz
+cd MLNX_OFED_LINUX-5.8-1.0.1.1-rhel8.8-x86_64
+sudo ./mlnxofedinstall --force
+sudo reboot
+ibv_devinfo
+ofed_info -s
+
+
+
+sudo dnf update -y
+sudo reboot
+sudo dnf groupinstall "Development Tools" -y
+sudo dnf install kernel-devel-$(uname -r) kernel-headers-$(uname -r) pciutils -y
+sudo mkdir -p /mnt/mlnx_ofed
+sudo mount -o loop /path/to/MLNX_OFED_LINUX-<version>-rhel8.8-x86_64.iso /mnt/mlnx_ofed
+cd /mnt/mlnx_ofed
+sudo ./mlnxofedinstall --distro rhel8.8
+sudo dnf install <missing-package>
+sudo reboot
+ibstat
+ibv_devinfo
+sudo dnf install kernel-devel kernel-headers
+sudo reboot
