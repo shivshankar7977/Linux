@@ -1,3 +1,5 @@
+Cork screw it is the tool which is used when the proxy is configured and we want to take the ssh from the proxy network then we nee this corkscrew 
+
   507  wget https://github.com/bryanpkc/corkscrew/archive/master.zip
   508  ls
   509  unzip master.zip
